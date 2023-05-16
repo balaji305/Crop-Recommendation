@@ -26,9 +26,14 @@ def main():
     with col1: 
         with st.beta_expander(" ℹ️ Information", expanded=True):
             st.write("""
-            Crop recommendation is one of the most important aspects of precision agriculture. Crop recommendations are based on a number of factors. Precision agriculture seeks to define these criteria on a site-by-site basis in order to address crop selection issues. While the "site-specific" methodology has improved performance, there is still a need to monitor the systems' outcomes.Precision agriculture systems aren't all created equal. 
-            However, in agriculture, it is critical that the recommendations made are correct and precise, as errors can result in significant material and capital loss.
-
+                Welcome to our innovative web application, dedicated to revolutionizing crop recommendation systems in 
+                the field of agriculture. Our platform harnesses the power of precision agriculture to provide accurate and 
+                data-driven recommendations for optimal crop selection. By analyzing a multitude of factors specific to each
+                site, we ensure personalized and site-specific crop recommendations that can boost productivity and 
+                efficiency. With our user-friendly interface and advanced algorithms, our web app empowers farmers and 
+                agricultural professionals to make informed decisions, reducing risks and maximizing yields. Experience the
+                future of crop recommendation systems with our cutting-edge web application, designed to elevate your 
+                farming practices to new heights.
             """)
         '''
         ## How does it work ❓ 
@@ -38,13 +43,13 @@ def main():
 
     with col2:
         st.subheader(" Find out the most suitable crop to grow in your farm 👨‍🌾")
-        N = st.number_input("Nitrogen", 1,10000)
-        P = st.number_input("Phosporus", 1,10000)
-        K = st.number_input("Potassium", 1,10000)
-        temp = st.number_input("Temperature",0.0,100000.0)
-        humidity = st.number_input("Humidity in %", 0.0,100000.0)
-        ph = st.number_input("Ph", 0.0,100000.0)
-        rainfall = st.number_input("Rainfall in mm",0.0,100000.0)
+        N = st.number_input("Nitrogen", 1,100)
+        P = st.number_input("Phosporus", 1,100)
+        K = st.number_input("Potassium", 1,100)
+        temp = st.number_input("Temperature",0.0,60.0)
+        humidity = st.number_input("Humidity in %", 0.0,100.0)
+        ph = st.number_input("Ph", 0.0,14.0)
+        rainfall = st.number_input("Rainfall in mm",0.0,10000.0)
 
         feature_list = [N, P, K, temp, humidity, ph, rainfall]
         single_pred = np.array(feature_list).reshape(1,-1)
@@ -59,7 +64,7 @@ def main():
             col1.success(f"{prediction.item().title()} are recommended by the A.I for your farm.")
       #code for html ☘️ 🌾 🌳 👨‍🌾  🍃
 
-    st.warning("Note: This A.I application is for educational/demo purposes only and cannot be relied upon. Check the source code [here](https://github.com/gabbygab1233/Crop-Recommendation)")
+    st.warning("Note: This A.I application is for educational purposes only and cannot be relied upon. Check the source code [here](https://github.com/balaji305/Crop-Recommendation)")
     hide_menu_style = """
     <style>
     #MainMenu {visibility: hidden;}
